@@ -35,7 +35,7 @@ jobs:
       - name: Check 'list-changed-manifests' output
         run: |
           echo "Output of 'list-changed-manifests' job:"
-          echo "${{ steps.list-changed-manifests.outputs.all_changed_files }}"
+          echo "${{ needs.list-changed-manifests.outputs.matrix }}"
     
   manifest-checks-jdk11:
     needs: [list-changed-manifests]
