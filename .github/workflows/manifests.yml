@@ -26,7 +26,7 @@ jobs:
       - name: Set unique changed manifests as matrix
         id: set-matrix
         run: |
-          echo "::set-output name=matrix::$(echo ${{ steps.list-changed-manifests.outputs.all_changed_files }} | jq -R -c -s 'split(" ")')"
+          echo "::set-output name=matrix::$(echo ${{ steps.list-changed-manifests.outputs.all_changed_files }}"
             
   check-list-changed-output:
     needs: list-changed-manifests  # Ensure this step runs after 'list-changed-manifests' job
