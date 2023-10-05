@@ -28,6 +28,15 @@ jobs:
         run: |
           echo "::set-output name=matrix::$(echo ${{ steps.list-changed-manifests.outputs.all_changed_files }} | jq -R -c -s 'split(" ")')"
             
+  check-list-changed-output:
+    needs: list-changed-manifests  # Ensure this step runs after 'list-changed-manifests' job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check 'list-changed-manifests' output
+        run: |
+          echo "Output of 'list-changed-manifests' job:"
+          echo "${{ steps.list-changed-manifests.outputs.all_changed_files }}"
+    
   manifest-checks-jdk11:
     needs: [list-changed-manifests]
     runs-on: ubuntu-latest
