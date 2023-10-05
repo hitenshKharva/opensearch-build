@@ -29,7 +29,7 @@ jobs:
 
             
   manifest-checks-jdk11:
-    needs: list-changed-manifests
+    needs: [list-changed-manifests]
     runs-on: ubuntu-latest
     env:
       PYTHON_VERSION: 3.9
