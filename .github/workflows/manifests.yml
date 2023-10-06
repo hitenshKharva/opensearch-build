@@ -23,13 +23,14 @@ jobs:
         id: list-changed-manifests
         with:
           #separator: ' '
+          files: manifests/**/opensearch*.yml
           json: true
           quotepath: false
           dir_names: false
         
       - name: Set unique changed manifests as matrix
         id: set-matrix
-        run: echo "matrix={\"files\":${{ steps.list-changed-manifests.outputs.all_changed_files }} | grep -E "manifests/**/opensearch*.yml"}" >> "$GITHUB_OUTPUT"
+        run: echo "matrix={\"files\":${{ steps.list-changed-manifests.outputs.all_changed_files }}}" >> "$GITHUB_OUTPUT"
             
   check-list-changed-output:
     needs: list-changed-manifests  # Ensure this step runs after 'list-changed-manifests' job
