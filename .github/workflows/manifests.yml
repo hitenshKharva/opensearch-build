@@ -39,7 +39,8 @@ jobs:
       PYTHON_VERSION: 3.9
       JDK_VERSION: 11
     strategy:
-      matrix: ${{ fromJson(needs.list-changed-manifests.outputs.matrix) }}
+      matrix: 
+        manifest: ${{ fromJson(needs.list-changed-manifests.outputs.matrix) }}
     steps:
       - uses: actions/checkout@v3
       - name: Set Up JDK ${{ env.JDK_VERSION }}
@@ -64,7 +65,8 @@ jobs:
       PYTHON_VERSION: 3.9
       JDK_VERSION: 17
     strategy:
-      matrix: ${{ fromJson(needs.list-changed-manifests.outputs.matrix) }}
+      matrix: 
+        manifest: ${{ fromJson(needs.list-changed-manifests.outputs.matrix) }}
     steps:
       - uses: actions/checkout@v3
       - name: Set Up JDK ${{ env.JDK_VERSION }}
