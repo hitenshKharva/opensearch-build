@@ -31,15 +31,6 @@ jobs:
       - name: Set unique changed manifests as matrix
         id: set-matrix
         run: echo "matrix={\"files\":${{ steps.list-changed-manifests.outputs.all_changed_files }}}" >> "$GITHUB_OUTPUT"
-            
-  check-list-changed-output:
-    needs: list-changed-manifests  # Ensure this step runs after 'list-changed-manifests' job
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check 'list-changed-manifests' output
-        run: |
-          echo "Output of 'list-changed-manifests' job:"
-          echo "${{ needs.list-changed-manifests.outputs.matrix }}"
     
   manifest-checks-jdk11:
     needs: [list-changed-manifests]
