@@ -30,7 +30,7 @@ jobs:
         
       - name: Set unique changed manifests as matrix
         id: set-matrix
-        run: echo "matrix={\"files\":${{ steps.list-changed-manifests.outputs.all_changed_files }}}" >> "$GITHUB_OUTPUT"
+        run: echo "matrix={\"manifest\":${{ steps.list-changed-manifests.outputs.all_changed_files }}}" >> "$GITHUB_OUTPUT"
     
   manifest-checks-jdk11:
     needs: [list-changed-manifests]
@@ -39,7 +39,8 @@ jobs:
       PYTHON_VERSION: 3.9
       JDK_VERSION: 11
     strategy:
-      matrix: ${{ fromJson(needs.list-changed-manifests.outputs.matrix) }}
+      matrix: 
+        manifest: ${{ fromJson(needs.list-changed-manifests.outputs.matrix) }}
     steps:
       - uses: actions/checkout@v3
       - name: Set Up JDK ${{ env.JDK_VERSION }}
@@ -55,7 +56,7 @@ jobs:
           python -m pip install --upgrade pipenv wheel
       - name: OpenSearch Manifests
         run: |-
-          ./ci.sh ${{ matrix.files }} --snapshot
+          ./ci.sh ${{ matrix.manifest }} --snapshot
 
   manifest-checks-jdk17:
     needs: [list-changed-manifests]
@@ -64,7 +65,8 @@ jobs:
       PYTHON_VERSION: 3.9
       JDK_VERSION: 17
     strategy:
-      matrix: ${{ fromJson(needs.list-changed-manifests.outputs.matrix) }}
+      matrix: 
+        manifest: ${{ fromJson(needs.list-changed-manifests.outputs.matrix) }}
     steps:
       - uses: actions/checkout@v3
       - name: Set Up JDK ${{ env.JDK_VERSION }}
@@ -80,4 +82,4 @@ jobs:
           python -m pip install --upgrade pipenv wheel
       - name: OpenSearch Manifests
         run: |-
-          ./ci.sh ${{ matrix.files }} --snapshot
+          ./ci.sh ${{ matrix.manifest }} --snapshot
