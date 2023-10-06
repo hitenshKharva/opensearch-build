@@ -26,6 +26,7 @@ jobs:
           path: 'manifests'
           json: true
           quotepath: false
+          dir_names: false
         
       - name: Set unique changed manifests as matrix
         id: set-matrix
