@@ -23,7 +23,6 @@ jobs:
         id: list-changed-manifests
         with:
           #separator: ' '
-          path: 'manifests'
           json: true
           quotepath: false
           dir_names: false
