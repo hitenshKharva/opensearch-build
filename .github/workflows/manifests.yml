@@ -21,6 +21,7 @@ jobs:
         id: list-changed-manifests
         with:
           #separator: ' '
+          path: 'manifests/**/*.yml'
           json: true
         
       - name: Set unique changed manifests as matrix
