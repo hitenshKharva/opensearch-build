@@ -8,7 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Add License Header
-        uses: kt3k/license_checker@v1.0.6
+      - name: Install Deno
+        run: |
+          curl -fsSL https://deno.land/x/install/install.sh | sh
+
+      - name: Check License
+        run: deno run --allow-read https://deno.land/x/license_checker@v3.2.3
+      # - name: Add License Header
+      #   uses: kt3k/license_checker@v1.0.6
 
         
