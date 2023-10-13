@@ -1,8 +1,10 @@
 {
     
-  "**/*.{py,groovy,sh,js,ts}": [
+  "**/*": [
     " Copyright OpenSearch Contributors",
     " SPDX-License-Identifier: Apache-2.0"
   ],
-  "ignore": [".flake8"]
+  "ignore": [
+    "**/*.{md,json,yml,flake8}"
+]
 }
