@@ -1,5 +1,5 @@
 {
-  "**/!(*.sh).{py,groovy,sh,js,ts}": [
+  "**/*.{!(md|json|yml)}": [
     " Copyright OpenSearch Contributors",
     " SPDX-License-Identifier: Apache-2.0"
   ]
