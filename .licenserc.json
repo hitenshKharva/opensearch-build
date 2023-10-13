@@ -1,6 +1,6 @@
 {
   
-"**/*.{md,yml,json}":[
+"**/*.{py,groovy,!sh,js,ts}":[
   " Copyright OpenSearch Contributors",
   " SPDX-License-Identifier: Apache-2.0"
 ]
