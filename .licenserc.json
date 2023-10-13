@@ -6,6 +6,7 @@
   ],
   "ignore": [
     ".md",
-    ".flake8"
+    ".flake8",
+    ".yml"
 ]
 }
