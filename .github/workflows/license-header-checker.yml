@@ -10,10 +10,3 @@ jobs:
       - uses: actions/checkout@v3
       - name: Add License Header
         run: npx @kt3k/license-checker
-
-  # - uses: denoland/setup-deno@v1
-      #   with:
-      #     deno-version: v1.x
-      # - run: deno run --allow-read https://deno.land/x/license_checker@v3.2.2/main.ts
-
-      
