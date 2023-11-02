@@ -6,6 +6,7 @@ on:
       new_version:
         description: 'New version number'
         required: true
+  pull_request:
 
 permissions:
   id-token: write
