@@ -1,23 +1,13 @@
 name: Update Release Refs
 
 on:
-  schedule:
-    - cron: 0 0 * * *
   workflow_dispatch:
     inputs:
       new_version:
         description: 'New version number'
         required: true
-      logLevel:
-        description: Log level
-        required: true
-        default: warning
-        type: choice
-        options:
-          - info
-          - warning
-          - debug
-
+  pull_request:
+  
 permissions:
   id-token: write
   contents: write
@@ -43,7 +33,7 @@ jobs:
 
     - name: Update Tags
       run: |
-        python .github/workflows/update_release_refs.py ${{github.event.inputs.new_version}}
+        python .github/workflows/update_release_refs.py ${{ inputs.new_version }}
     # - name: Commit and Push Changes
     #   run: |
     #     git config --global user.email "your-email@example.com"
