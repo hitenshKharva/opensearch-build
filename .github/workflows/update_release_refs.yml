@@ -6,6 +6,15 @@ on:
       new_version:
         description: 'New version number'
         required: true
+      logLevel:
+        description: Log level
+        required: true
+        default: warning
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
 
 permissions:
   id-token: write
