@@ -4,7 +4,7 @@ import sys
 
 new_version = sys.argv[1]
 # Define the folder where YAML files are located
-folder_path = f"./manifests/{new_version}"  # Replace with the actual folder path
+folder_path = f"/home/runner/work/opensearch-build/opensearch-build/manifests/{new_version}"  # Replace with the actual folder path
 
 # # Get the folder name and use it as the new version
 # new_version = os.path.basename(folder_path)
