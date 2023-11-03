@@ -6,6 +6,7 @@ on:
       new_version:
         description: 'New version number'
         required: true
+  pull_request:
 
 jobs:
   update_tags_and_create_pr:
