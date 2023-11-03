@@ -1,4 +1,4 @@
-name: Update Release Refs
+name: Update Release Manifest Refs
 
 on:
   workflow_dispatch:
