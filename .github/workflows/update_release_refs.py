@@ -2,12 +2,12 @@ import os
 import yaml
 import sys
 
-new_version = sys.argv[1]
+folder_path = sys.argv[1]
 # Define the folder where YAML files are located
-folder_path = f"/home/runner/work/opensearch-build/opensearch-build/manifests/{new_version}"  # Replace with the actual folder path
+# folder_path = f"/manifests/{new_version}"  # Replace with the actual folder path
 
-# # Get the folder name and use it as the new version
-# new_version = os.path.basename(folder_path)
+# Get the folder name and use it as the new version
+new_version = os.path.basename(folder_path)
 
 # Define a list of component names that should have the same version as 'OpenSearch' and 'common-utils'
 same_version_components = ['OpenSearch', 'common-utils']
