@@ -28,7 +28,7 @@ jobs:
 
       - name: Update Tags
         run: |
-          python .github/workflows/update_release_refs.py "${{ github.workspace }}/manifests/${{ inputs.new_version }}"
+          python .github/workflows/update_release_manifest_refs.py "${{ github.workspace }}/manifests/${{ inputs.new_version }}"
 
       - name: Commit and Push Changes
         run: |
