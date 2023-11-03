@@ -35,13 +35,16 @@ jobs:
         run: |
           python .github/workflows/update_release_refs.py "${{ github.workspace }}/manifests/${{ inputs.new_version }}"
 
-      # - name: Commit and Push Changes
-      #   run: |
-      #     git config --global user.email "your-email@example.com"
-      #     git config --global user.name "Your Name"
-      #     git add .
-      #     git commit -m "Update tags to ${{ github.event.inputs.new_version }}"
-      #     git push
+      - name: Commit and Push Changes
+        run: |
+          git remote set-url origin https://github.com/hitenshKharva/opensearch-build.git
+          git config --global user.email "kharva.hitensh11@gmail.com"
+          git config --global user.name "hitenshKharva"
+          git checkout -b update_manifests
+          git add .
+          git commit -s -m "Update tags to ${{ inputs.new_version }}"
+          git push origin update_manifests
+          gh pr create --title '[AUTO] Update manifests refs to tags' --body 'Testing' -H update-manifest -B main
 
 
       # - name: Create Pull Request
