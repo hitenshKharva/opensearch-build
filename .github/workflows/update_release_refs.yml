@@ -31,6 +31,8 @@ jobs:
           python .github/workflows/update_release_refs.py "${{ github.workspace }}/manifests/${{ inputs.new_version }}"
 
       - name: Commit and Push Changes
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           git remote set-url origin https://github.com/hitenshKharva/opensearch-build.git
           git config --global user.email "kharva.hitensh11@gmail.com"
