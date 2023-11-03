@@ -8,11 +8,6 @@ on:
         description: 'New version number'
         required: true
 
-permissions:
-  id-token: write
-  contents: write
-  issues: write
-
 jobs:
   update_tags_and_create_pr:
     runs-on: ubuntu-latest
